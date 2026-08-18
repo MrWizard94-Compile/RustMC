@@ -62,8 +62,13 @@ cargo test -p rustmc-veloren-fork
 
 This exercises the shipped fork API (`place_block` / `break_block` / `get_block`) across world reload — the Minecraft-like mutate seed on the Veloren track.
 
+## Not in this delivery (deferred)
+
+**All The Mods 10** and **Create:Aeronautics** (and add-ons) are **not** Rust-ported here. A local CurseForge ATM10 instance may appear in `config/local.minecraft.env` as inventory only — it is never shipped or claimed as a RustMC feature.
+
 ## Do not
 
 * Commit `%APPDATA%\.minecraft`, jars, `assets/objects`, or CurseForge ATM10 folders into this repo  
 * Upload Mojang assets to GitHub releases  
 * Use bare `cargo run -p pumpkin --release` on Windows without `Build-Pumpkin.ps1` (LNK1120)  
+  
