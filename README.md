@@ -29,10 +29,12 @@ cargo --manifest-path vendor/pumpkin/Cargo.toml --version
 # After building Pumpkin per its README, run its documented server entry.
 ```
 
-Clone with submodules:
+Clone with submodules (recursive — Pumpkin nests `pumpkin-plugin-wit`):
 
 ```powershell
 git clone --recurse-submodules https://github.com/MrWizard94-Compile/RustMC.git
+# or, after a plain clone:
+git submodule update --init --recursive
 ```
 
 ## Layout
