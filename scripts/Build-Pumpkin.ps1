@@ -20,15 +20,15 @@ if (-not (Test-Path $lld)) {
 }
 if (-not $lld) { throw "rust-lld.exe not found under ~/.rustup/toolchains" }
 
+# Prefer .cargo/config.toml linker (stable fingerprint) over RUSTFLAGS (forces full rebuild every run).
 New-Item -ItemType Directory -Force -Path ".cargo" | Out-Null
 @"
 [target.x86_64-pc-windows-msvc]
 linker = "rust-lld"
 "@ | Set-Content -Encoding utf8 ".cargo\config.toml"
 
-$env:CARGO_INCREMENTAL = "0"
 $env:CARGO_TERM_COLOR = "never"
-$env:RUSTFLAGS = "-C linker=$lld"
+Remove-Item Env:RUSTFLAGS -ErrorAction SilentlyContinue
 
 if ($Release) {
     cargo build -p pumpkin --release
