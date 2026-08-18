@@ -1,0 +1,9 @@
+[submodule "vendor/pumpkin"]
+	path = vendor/pumpkin
+	url = https://github.com/Pumpkin-MC/Pumpkin.git
+[submodule "vendor/leafish"]
+	path = vendor/leafish
+	url = https://github.com/Lea-fish/Leafish.git
+[submodule "vendor/veloren"]
+	path = vendor/veloren
+	url = https://github.com/veloren/veloren.git

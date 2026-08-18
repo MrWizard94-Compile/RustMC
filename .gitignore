@@ -1,0 +1,24 @@
+# Rust
+/target/
+**/target/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+.obsidian/
+
+# Local worlds / scratch
+/worlds/
+*.tmp
+
+# Secrets
+.env
+.env.*
+*.pem
+
+# Do not commit Mojang/Minecraft proprietary jars or official asset packs
+*.jar
+**/assets/minecraft/
