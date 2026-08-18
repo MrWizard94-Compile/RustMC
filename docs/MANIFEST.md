@@ -22,8 +22,10 @@
 | `scripts/Assert-LocalAssetsConfig.ps1` | Structural check (paths exist; not vendored) |
 | `scripts/Invoke-LeafishWithLocalAssets.ps1` | Launch Leafish with `--assets-dir` etc. |
 | `scripts/Build-Pumpkin.ps1` | Windows rust-lld Pumpkin build |
+| `scripts/Build-Leafish.ps1` | Apply Leafish patch then cargo build |
 | `scripts/Invoke-MinecraftStatusPing.ps1` | Live Java status/ping probe |
 | `scripts/Apply-LeafishPatches.ps1` | Apply Windows Leafish zip-dir fix |
+| `docs/PROJECT-OVERRIDE.md` | Approved vendor `ENG-WARN-001` waiver |
 | `patches/leafish-windows-zip-dirs.patch` | Leafish AlreadyExists fix |
 | `crates/rustmc-veloren-fork/` | Veloren fork block place/break API + tests |
 | `docs/FAMILY-PLAY.md` | Family session play path |
