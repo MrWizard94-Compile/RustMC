@@ -15,6 +15,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $repoRoot = Split-Path -Parent $PSScriptRoot
+& (Join-Path $PSScriptRoot "Apply-LeafishPatches.ps1")
 if (-not $EnvFile) {
     $EnvFile = Join-Path $repoRoot "config\local.minecraft.env"
 }
