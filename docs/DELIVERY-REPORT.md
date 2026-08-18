@@ -49,7 +49,7 @@
 | 14 | Review packaging | PASS |
 | 15 | Self-audit log | PASS (this section) |
 
-**Residual doubt:** Full Pumpkin server binary `--help` may still be compiling in constrained agent environments (wasmtime + `pumpkin-data`). Escape hatch: `launch-unavailable` evidence; `cargo check -p pumpkin-util` proves toolchain can compile Pumpkin crates. Do not treat full server GUI/client launch as required for this bootstrap bar.
+**Residual doubt:** Full `pumpkin` server binary fails to **link** on this Windows MSVC agent host (`link.exe` LNK1120, ~2860 unresolved externals) after a clean rebuild — see launch-unavailable evidence. `cargo check -p pumpkin-util` still finishes (upstream crates compile). Escape hatch per plan: criteria 1–4 + unit/compile evidence. Family desktops / CI may still produce `pumpkin.exe`; do not treat agent-host link failure as a product logic defect in `rustmc-world`.
 
 ## Modules loaded
 
