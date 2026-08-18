@@ -16,6 +16,7 @@
 | `README.md` | Product overview + IP line |
 | `docs/IP-POLICY.md` | No Mojang IP redistribution |
 | `docs/ARCHITECTURE.md` | Dual-stack roles; ATM10 deferred |
+| `docs/DELIVERY-REPORT.md` | Section 0 / REV-PACK delivery report |
 | `.gitignore` | Ignores jars / official asset paths |
 
 ## How to verify
