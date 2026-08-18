@@ -21,6 +21,12 @@
 | `scripts/Discover-LocalMinecraftAssets.ps1` | Find `%APPDATA%\.minecraft` → gitignored env |
 | `scripts/Assert-LocalAssetsConfig.ps1` | Structural check (paths exist; not vendored) |
 | `scripts/Invoke-LeafishWithLocalAssets.ps1` | Launch Leafish with `--assets-dir` etc. |
+| `scripts/Build-Pumpkin.ps1` | Windows rust-lld Pumpkin build |
+| `scripts/Invoke-MinecraftStatusPing.ps1` | Live Java status/ping probe |
+| `scripts/Apply-LeafishPatches.ps1` | Apply Windows Leafish zip-dir fix |
+| `patches/leafish-windows-zip-dirs.patch` | Leafish AlreadyExists fix |
+| `crates/rustmc-veloren-fork/` | Veloren fork block place/break API + tests |
+| `docs/FAMILY-PLAY.md` | Family session play path |
 | `.gitignore` | Ignores jars / official asset paths / local.env |
 
 ## How to verify

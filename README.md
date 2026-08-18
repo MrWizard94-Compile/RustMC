@@ -4,16 +4,19 @@ Family Minecraft-*like* play stack in **Rust**, built for local co-op (parents +
 
 **No Mojang/Minecraft assets or proprietary IP will be redistributed.**
 
-## What this repo is (bootstrap)
+## What this repo is
 
-1. **AGENTS Constitution** adopted (quality/process law) — see `AGENTS.md`  
-2. Open-source upstreams pinned as git submodules under `vendor/`:  
-   - [Veloren](https://veloren.net/) — voxel RPG / engine reference  
-   - [Pumpkin](https://github.com/Pumpkin-MC/Pumpkin) — Minecraft-protocol server  
-   - [Leafish](https://github.com/Lea-fish/Leafish) — Minecraft-protocol client  
-3. **`rustmc-world`** — durable voxel block **set + get** (place/break) that survives world reload  
+**RustMC** is a family Minecraft-*like* stack in Rust:
 
-All The Mods 10 / Create:Aeronautics ports are **deferred** (see `docs/ARCHITECTURE.md`).
+1. **Pumpkin** server — build with `scripts/Build-Pumpkin.ps1 -Release`, listen on `0.0.0.0:25565`  
+2. **Leafish** client — uses your local `.minecraft` assets (not copied into git)  
+3. **Veloren fork surface** (`crates/rustmc-veloren-fork`) — durable block place/break API  
+4. **AGENTS Constitution** — quality/process law (`AGENTS.md`)
+
+Family session steps: [`docs/FAMILY-PLAY.md`](docs/FAMILY-PLAY.md).  
+**No Mojang/Minecraft assets or proprietary IP will be redistributed.**
+
+All The Mods 10 / Create:Aeronautics ports remain deferred (see `docs/ARCHITECTURE.md`).
 
 ## Quick start
 

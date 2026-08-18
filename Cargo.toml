@@ -1,7 +1,9 @@
 [workspace]
 resolver = "2"
-members = ["crates/rustmc-world"]
+members = ["crates/rustmc-world", "crates/rustmc-veloren-fork"]
+exclude = ["vendor/pumpkin", "vendor/leafish", "vendor/veloren"]
 
 [workspace.package]
 edition = "2021"
 license = "MIT OR Apache-2.0"
+

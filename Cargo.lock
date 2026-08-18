@@ -33,6 +33,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustmc-veloren-fork"
+version = "0.1.0"
+dependencies = [
+ "rustmc-world",
+ "thiserror",
+]
+
+[[package]]
 name = "rustmc-world"
 version = "0.1.0"
 dependencies = [
