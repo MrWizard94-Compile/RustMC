@@ -9,7 +9,7 @@
 |---|-------|-------|
 | 1 | Completeness | PASS |
 | 2 | Dependency-first | PASS |
-| 3 | Zero warnings/errors | PASS on product crates; upstream Leafish/Pumpkin may warn |
+| 3 | Zero warnings/errors | PASS for `crates/**`; vendor Pumpkin/Leafish warnings **waived** via approved [`PROJECT-OVERRIDE.md`](PROJECT-OVERRIDE.md) (`ENG-WARN-001`, `GOV-OVR-001`) — not a silent PASS |
 | 4 | Tests exist & pass | PASS (`rustmc-veloren-fork`, `rustmc-world`) |
 | 5 | Docs synchronized | PASS (`FAMILY-PLAY.md`, IP policy) |
 | 6 | Security & validation | PASS (local assets gitignored; ping validates JSON) |
@@ -32,10 +32,9 @@
 ```powershell
 pwsh -File "AGENTS Constitution/tools/verify-pack.ps1"   # 0
 pwsh -File scripts/Build-Pumpkin.ps1 -Release
-# run pumpkin.exe; then:
+# run vendor/pumpkin/target/release/pumpkin.exe; then:
 pwsh -File scripts/Invoke-MinecraftStatusPing.ps1 -HostName 127.0.0.1 -Port 25565
-pwsh -File scripts/Apply-LeafishPatches.ps1
-cargo build --manifest-path vendor/leafish/Cargo.toml --release
+pwsh -File scripts/Build-Leafish.ps1 -Release   # Apply-LeafishPatches THEN cargo build
 pwsh -File scripts/Assert-LocalAssetsConfig.ps1
 pwsh -File scripts/Invoke-LeafishWithLocalAssets.ps1 -Release
 cargo test -p rustmc-veloren-fork

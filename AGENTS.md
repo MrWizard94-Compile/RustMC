@@ -38,6 +38,8 @@ Then load pack modules per the applicability matrix in pack `AGENTS.md`.
 
 * Architecture: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)  
 * IP / redistribution policy: [`docs/IP-POLICY.md`](docs/IP-POLICY.md)  
+* Family play path: [`docs/FAMILY-PLAY.md`](docs/FAMILY-PLAY.md)  
+* Approved override (vendor `ENG-WARN-001` only): [`docs/PROJECT-OVERRIDE.md`](docs/PROJECT-OVERRIDE.md)  
 * Product README: [`README.md`](README.md)  
 
 ### Mission

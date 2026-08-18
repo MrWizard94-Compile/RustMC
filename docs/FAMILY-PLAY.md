@@ -21,23 +21,37 @@ pwsh -File scripts/Discover-LocalMinecraftAssets.ps1
 pwsh -File scripts/Assert-LocalAssetsConfig.ps1
 ```
 
-2. Start Pumpkin (from `vendor/pumpkin`, after build):
+2. **Build Pumpkin with rust-lld** (required on Windows — bare `cargo run` hits MSVC LNK1120):
 
 ```powershell
-cd vendor/pumpkin
-# Windows: .cargo/config.toml uses rust-lld to avoid MSVC LNK1120
-cargo run -p pumpkin --release
+pwsh -File scripts/Build-Pumpkin.ps1 -Release
+# Binary: vendor/pumpkin/target/release/pumpkin.exe
+```
+
+3. Start the server (from a dedicated world directory):
+
+```powershell
+mkdir worlds\family -Force
+cd worlds\family
+..\..\vendor\pumpkin\target\release\pumpkin.exe
 # Listens on 0.0.0.0:25565 by default
 ```
 
-3. Prove the server (optional):
+4. Prove the server:
 
 ```powershell
 pwsh -File scripts/Invoke-MinecraftStatusPing.ps1 -HostName 127.0.0.1 -Port 25565
 ```
 
-4. Connect:
-   - **Leafish:** build then `pwsh -File scripts/Invoke-LeafishWithLocalAssets.ps1 -Release` and join `127.0.0.1`
+5. Connect:
+   - **Leafish (build applies Windows patch, then compiles, then launches):**
+
+```powershell
+pwsh -File scripts/Build-Leafish.ps1 -Release
+pwsh -File scripts/Invoke-LeafishWithLocalAssets.ps1 -Release
+# Join 127.0.0.1 in the server list
+```
+
    - **Vanilla client:** Multiplayer → Direct connect → `127.0.0.1:25565`
 
 ## Session B — Veloren fork block mutate (dev / tests)
@@ -52,3 +66,4 @@ This exercises the shipped fork API (`place_block` / `break_block` / `get_block`
 
 * Commit `%APPDATA%\.minecraft`, jars, `assets/objects`, or CurseForge ATM10 folders into this repo  
 * Upload Mojang assets to GitHub releases  
+* Use bare `cargo run -p pumpkin --release` on Windows without `Build-Pumpkin.ps1` (LNK1120)  

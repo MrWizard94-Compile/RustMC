@@ -3,8 +3,9 @@
   Run Leafish using this PC's Minecraft assets (from config/local.minecraft.env).
 
 .DESCRIPTION
-  Does not copy assets into the repo. Requires Leafish to be built first:
-    cargo build --manifest-path vendor/leafish/Cargo.toml --release
+  Applies the Windows zip-dir patch, rebuilds Leafish when source is newer than the
+  binary (so the patch reaches the exe), then launches with local assets.
+  Does not copy Mojang assets into the repo.
 #>
 [CmdletBinding()]
 param(
@@ -15,7 +16,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $repoRoot = Split-Path -Parent $PSScriptRoot
-& (Join-Path $PSScriptRoot "Apply-LeafishPatches.ps1")
+
 if (-not $EnvFile) {
     $EnvFile = Join-Path $repoRoot "config\local.minecraft.env"
 }
@@ -43,20 +44,40 @@ if (-not (Test-Path $env:MINECRAFT_ASSETS_DIR)) {
 
 $profile = if ($Release) { "release" } else { "debug" }
 $exe = Join-Path $repoRoot "vendor\leafish\target\$profile\leafish.exe"
-if (-not (Test-Path $exe)) {
-    throw "Leafish binary not found at $exe — build it first (cargo build -p leafish in vendor/leafish)"
+$resourcesRs = Join-Path $repoRoot "vendor\leafish\src\resources.rs"
+
+# Always apply patch first; rebuild if binary missing or older than patched source.
+& (Join-Path $PSScriptRoot "Apply-LeafishPatches.ps1")
+$needBuild = -not (Test-Path $exe)
+if (-not $needBuild -and (Test-Path $resourcesRs)) {
+    if ((Get-Item $resourcesRs).LastWriteTimeUtc -gt (Get-Item $exe).LastWriteTimeUtc) {
+        $needBuild = $true
+    }
+}
+if ($needBuild) {
+    Write-Host "Building Leafish ($profile) so patched resources.rs is in the binary..."
+    if ($Release) {
+        & (Join-Path $PSScriptRoot "Build-Leafish.ps1") -Release
+    } else {
+        & (Join-Path $PSScriptRoot "Build-Leafish.ps1")
+    }
+    if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 }
 
-$args = @(
+if (-not (Test-Path $exe)) {
+    throw "Leafish binary still missing at $exe after build"
+}
+
+$launchArgs = @(
     "--assets-dir", $env:MINECRAFT_ASSETS_DIR,
     "--asset-index", $env:MINECRAFT_ASSET_INDEX
 )
 if ($env:MINECRAFT_CLIENT_JAR -and (Test-Path $env:MINECRAFT_CLIENT_JAR)) {
-    $args += @("--client-jar", $env:MINECRAFT_CLIENT_JAR)
+    $launchArgs += @("--client-jar", $env:MINECRAFT_CLIENT_JAR)
 }
-$args += $ExtraArgs
+$launchArgs += $ExtraArgs
 
 Write-Host "Starting Leafish with local assets (not copied into git):"
-Write-Host "  $exe $($args -join ' ')"
-& $exe @args
+Write-Host "  $exe $($launchArgs -join ' ')"
+& $exe @launchArgs
 exit $LASTEXITCODE
