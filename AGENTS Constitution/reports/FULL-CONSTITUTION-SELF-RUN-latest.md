@@ -2,9 +2,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Pack root** | `C:\WPAI\AGENTS Constitution` |
+| **Pack root** | `C:\Users\Bulkl\.grok\worktrees\wpai\rustmc\RustMC\AGENTS Constitution` |
 | **Pack VERSION** | 5.0.1 |
-| **Date (UTC)** | 2026-08-10 20:25:28Z |
+| **Date (UTC)** | 2026-08-18 18:49:18Z |
 | **Constitution** | AGENTS.md (see header) |
 | **SOP** | SOP-PROD-001 |
 | **Portability** | Path-independent; root may be moved |
@@ -36,7 +36,7 @@ Tools resolve pack root from script location or -PackRoot (GOV-PORT-001). Folder
 
 ```
 AGENTS Constitution integrity check
-Pack root: C:\WPAI\AGENTS Constitution
+Pack root: C:\Users\Bulkl\.grok\worktrees\wpai\rustmc\RustMC\AGENTS Constitution
 
 Pack VERSION:                5.0.1
 Active Rule IDs in registry: 136
@@ -52,14 +52,14 @@ RESULT: PASS (GOV-INT-001)
 ```
 # Pack Self-Audit
 
-**Pack root:** `C:\WPAI\AGENTS Constitution`
-**Date (UTC):** 2026-08-10 20:25:30Z
+**Pack root:** `C:\Users\Bulkl\.grok\worktrees\wpai\rustmc\RustMC\AGENTS Constitution`
+**Date (UTC):** 2026-08-18 18:49:20Z
 **Rules:** CONST-GATE-001, CONST-DONE-001, GOV-INT-001, GOV-SYNC-001
 
 ## 1. GOV-INT-001 verify-pack
 ```
 AGENTS Constitution integrity check
-Pack root: C:\WPAI\AGENTS Constitution
+Pack root: C:\Users\Bulkl\.grok\worktrees\wpai\rustmc\RustMC\AGENTS Constitution
 
 Pack VERSION:                5.0.1
 Active Rule IDs in registry: 136
@@ -97,7 +97,7 @@ PASS: Always-load present: standards/DOCUMENTATION.md
 ## 5. MANIFEST (pack inventory summary)
 
 - Markdown files (ex-archive): **63**
-- All files (ex-archive): **73**
+- All files (ex-archive): **71**
 - Active Rule IDs (registry rows): see verify-pack output
 
 ## 6. Result
@@ -105,7 +105,7 @@ PASS: Always-load present: standards/DOCUMENTATION.md
 **OVERALL: PASS** - pack satisfies CONST-GATE-001 as applied to itself.
 
 
-Wrote C:\WPAI\AGENTS Constitution\reports\SELF-AUDIT-latest.md
+Wrote C:\Users\Bulkl\.grok\worktrees\wpai\rustmc\RustMC\AGENTS Constitution\reports\SELF-AUDIT-latest.md
 ```
 **PASS:** self-audit exit 0
 
@@ -202,7 +202,7 @@ Wrote C:\WPAI\AGENTS Constitution\reports\SELF-AUDIT-latest.md
 ## 11. Inventory counts
 
 - Markdown (ex-archive): **63**
-- All files (ex-archive): **73**
+- All files (ex-archive): **71**
 - Module paths checked: **45**
 - SOP phase artifacts: **13**
 
