@@ -17,7 +17,11 @@
 | `docs/IP-POLICY.md` | No Mojang IP redistribution |
 | `docs/ARCHITECTURE.md` | Dual-stack roles; ATM10 deferred |
 | `docs/DELIVERY-REPORT.md` | Section 0 / REV-PACK delivery report |
-| `.gitignore` | Ignores jars / official asset paths |
+| `config/local.minecraft.env.example` | Template for local asset paths |
+| `scripts/Discover-LocalMinecraftAssets.ps1` | Find `%APPDATA%\.minecraft` → gitignored env |
+| `scripts/Assert-LocalAssetsConfig.ps1` | Structural check (paths exist; not vendored) |
+| `scripts/Invoke-LeafishWithLocalAssets.ps1` | Launch Leafish with `--assets-dir` etc. |
+| `.gitignore` | Ignores jars / official asset paths / local.env |
 
 ## How to verify
 

@@ -42,7 +42,7 @@ Then load pack modules per the applicability matrix in pack `AGENTS.md`.
 
 ### Mission
 
-Rebuild a Minecraft-*like* family play stack in Rust: Veloren as voxel RPG/engine reference, Pumpkin (server) + Leafish (client) for Minecraft-protocol compatibility, plus a durable RustMC block mutate API. Intended for family local play. **No Mojang/Minecraft assets or proprietary IP will be redistributed.**
+Rebuild a Minecraft-*like* family play stack in Rust: Veloren as voxel RPG/engine reference, Pumpkin (server) + Leafish (client) for Minecraft-protocol compatibility, plus a durable RustMC block mutate API. Intended for family local play. **Local reuse of an already-owned Minecraft install on this PC is allowed; no Mojang/Minecraft assets or proprietary IP will be redistributed** (see `docs/IP-POLICY.md`, `scripts/Discover-LocalMinecraftAssets.ps1`).
 
 ### Stack pins (bootstrap)
 

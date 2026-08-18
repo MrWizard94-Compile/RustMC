@@ -29,6 +29,24 @@ cargo --manifest-path vendor/pumpkin/Cargo.toml --version
 # After building Pumpkin per its README, run its documented server entry.
 ```
 
+## Local Minecraft assets (family machine)
+
+This PC may already have a legitimate Minecraft install. **Reuse those assets in place** for Leafish — do **not** copy them into git.
+
+```powershell
+# Writes gitignored config/local.minecraft.env pointing at %APPDATA%\.minecraft
+pwsh -File scripts/Discover-LocalMinecraftAssets.ps1
+
+# Structural check (paths resolve; nothing vendored into the repo)
+pwsh -File scripts/Assert-LocalAssetsConfig.ps1
+
+# After Leafish is built:
+#   cargo build --manifest-path vendor/leafish/Cargo.toml --release
+pwsh -File scripts/Invoke-LeafishWithLocalAssets.ps1 -Release
+```
+
+Policy: [`docs/IP-POLICY.md`](docs/IP-POLICY.md) — local reuse OK; **no redistribution** to the GitHub remote.
+
 Clone with submodules (recursive — Pumpkin nests `pumpkin-plugin-wit`):
 
 ```powershell

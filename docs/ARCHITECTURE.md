@@ -35,6 +35,10 @@ It does **not** link Veloren or Pumpkin yet. It is the testable world-store boun
 
 Veloren is **GPL-3.0**. Any future tight linking/forking with other components must stay license-compatible; this bootstrap keeps Veloren as a vendored submodule reference and does not statically link it into `rustmc-world`.
 
+## Local assets (family PC)
+
+On a machine with an existing Minecraft install, `scripts/Discover-LocalMinecraftAssets.ps1` writes gitignored `config/local.minecraft.env` (assets dir, asset index, client jar, optional CurseForge ATM10 path). Leafish is launched via `scripts/Invoke-LeafishWithLocalAssets.ps1` with `--assets-dir` / `--asset-index` / `--client-jar`. Assets remain outside the git tree.
+
 ## IP
 
-See [`IP-POLICY.md`](IP-POLICY.md): **no Mojang/Minecraft assets or proprietary IP will be redistributed.**
+See [`IP-POLICY.md`](IP-POLICY.md): local reuse of an already-owned install is allowed for family play; **no Mojang/Minecraft assets or proprietary IP will be redistributed** via git or releases.

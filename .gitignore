@@ -22,3 +22,10 @@ Thumbs.db
 # Do not commit Mojang/Minecraft proprietary jars or official asset packs
 *.jar
 **/assets/minecraft/
+/minecraft-assets/
+/assets/objects/
+/assets/indexes/
+
+# Machine-local paths to an already-owned Minecraft install (family use)
+/config/local.minecraft.env
+/config/local/
