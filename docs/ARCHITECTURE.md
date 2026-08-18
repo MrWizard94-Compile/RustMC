@@ -10,7 +10,7 @@ The product goal names **two** complementary open-source foundations:
 | Stack | Upstream | Role in this bootstrap |
 |-------|----------|------------------------|
 | Voxel RPG / engine | **Veloren** (`vendor/veloren`) | Present as the high-performance voxel world/engine reference. Secondary for launch smoke here (GPU/display heavy). Future work may grow Minecraft-like building/automation on this base. |
-| Minecraft network protocol | **Pumpkin** (server) + **Leafish** (client) under `vendor/` | Present for vanilla-compatible protocol work. **Pumpkin is the primary headless launch smoke** for this bootstrap (status/ping or CLI ready). Leafish is present but secondary (client/assets/display). |
+| Minecraft network protocol | **Pumpkin** (server) + **Leafish** (client) under `vendor/` | Present for vanilla-compatible protocol work. **Pumpkin is the intended primary headless launch smoke** (status/ping or CLI `--help`). Full `pumpkin` release builds pull wasmtime + generated `pumpkin-data` and may exceed CI/agent time/memory budgets; use `git submodule update --init --recursive` (nested `pumpkin-plugin-wit`) before building. Leafish is present but secondary (client/GPU/display). |
 
 These are different architectures. This bootstrap requires **all three sources present**, one **durable block set/get API** (`crates/rustmc-world`), and one launch smoke — **not** a finished merge of both stacks.
 
