@@ -1,36 +1,22 @@
 # AGENTS — Project Entry Point (RustMC)
 
 **Project:** RustMC  
-**Pack:** AGENTS Constitution (universal)  
-**Pack path (relative to this file):** `AGENTS Constitution/`  
-**Pack version:** see `AGENTS Constitution/VERSION`
+**Cross-project law:** [WPAI Constitution](https://github.com/MrWizard94-Compile/Agents-Constitution) accepted `main`
+
+**Verified CI source:** `5a990520d53969bb90b72a886bbc62cb7f1b63aa` (6.3.1)
 
 This file is **Level 4 project law entry only**. It does not duplicate the constitution.
 
 ---
 
-## Binding pack
+## Binding source
 
-→ **Constitution (SOUL):** [`AGENTS Constitution/AGENTS.md`](AGENTS%20Constitution/AGENTS.md)  
-
-→ **Process (SOP):** [`AGENTS Constitution/SOP.md`](AGENTS%20Constitution/SOP.md)  
-
-→ **Adopt / move guide:** [`AGENTS Constitution/ADOPT.md`](AGENTS%20Constitution/ADOPT.md)  
-
-→ **Pack identity:** [`AGENTS Constitution/PACK.md`](AGENTS%20Constitution/PACK.md)  
-
----
-
-## Always load (via pack)
-
-* Pack `AGENTS.md`  
-* Pack `SOP.md`  
-* Pack `constitution/03-DEFINITION-OF-DONE.md`  
-* Pack `standards/ENGINEERING.md`  
-* Pack `standards/TESTING.md`  
-* Pack `standards/DOCUMENTATION.md`  
-
-Then load pack modules per the applicability matrix in pack `AGENTS.md`.
+The accepted GitHub repository is the sole editable cross-project law. Freeze
+and validate one commit per agent invocation; load its `SKILL.md`, `AGENTS.md`,
+`SOP.md`, `governance/EVOLUTION.md`, and applicable `law/*` files from that same
+snapshot. This project file supplies RustMC facts and may tighten, but cannot
+silently replace, the canonical Constitution. The removed vendored 5.0.1 pack
+is recoverable from RustMC Git history before this migration.
 
 ---
 
@@ -57,14 +43,21 @@ Rebuild a Minecraft-*like* family play stack in Rust: Veloren as voxel RPG/engin
 
 All The Mods 10 and Create:Aeronautics ports are **deferred** (see architecture note).
 
-Project law may **tighten** standards. It may not weaken `CONST-*`, `ENG-WARN-001`, `TEST-BEHAVIOR-001`, or `SEC-INPUT-001` without a documented override.
+Project law may **tighten** standards. The existing vendor-only `ENG-WARN-001`
+exception remains limited by `docs/PROJECT-OVERRIDE.md`; this migration does
+not expand its scope or certify a warning-clean vendor build.
 
 ---
 
-## Verify pack (from pack root)
+## Verify adoption
+
+The [pinned CI workflow](.github/workflows/constitution.yml) validates the
+exact canonical source, runs the read-only adoption audit with a hash-locked
+historical-report disposition, and tests the Rust workspace. For local
+product-crate verification, run from the repository root:
 
 ```powershell
-pwsh -File "AGENTS Constitution/tools/verify-pack.ps1"
+cargo +1.97.1 fmt --all -- --check
+cargo +1.97.1 clippy --workspace --all-targets --locked -- -D warnings
+cargo +1.97.1 test --workspace --locked
 ```
-
-Must exit `0` after pack install, move, or update.

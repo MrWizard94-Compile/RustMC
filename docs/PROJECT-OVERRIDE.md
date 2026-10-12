@@ -9,7 +9,7 @@
 
 | Rule ID | Canonical home |
 |---------|----------------|
-| `ENG-WARN-001` | `AGENTS Constitution/standards/ENGINEERING.md` |
+| `ENG-WARN-001` | [WPAI Constitution engineering law](https://github.com/MrWizard94-Compile/Agents-Constitution/blob/5a990520d53969bb90b72a886bbc62cb7f1b63aa/law/ENGINEERING.md) |
 
 ## Why this exception is required
 

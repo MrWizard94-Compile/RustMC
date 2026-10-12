@@ -1,4 +1,8 @@
-# MANIFEST — RustMC bootstrap delivery
+# MANIFEST — RustMC baseline and Constitution migration
+
+The original bootstrap entries below are historical. The current adoption
+package replaces the copied law with the canonical pointer and CI gate; the
+product crates, submodule pins, and local-assets policy are unchanged.
 
 **Repo:** https://github.com/MrWizard94-Compile/RustMC  
 **Product root:** `RustMC/` (nested clean tree; not the WPAI empire worktree root)
@@ -7,8 +11,8 @@
 
 | Path | Role |
 |------|------|
-| `AGENTS.md` | Level-4 constitution pointer |
-| `AGENTS Constitution/` | Vendored pack 5.0.1 |
+| `AGENTS.md`, `.github/workflows/constitution.yml` | Canonical pointer and pinned-source quality gate; the former 5.0.1 pack is retained in Git history |
+| `scripts/check-constitution-adoption.py`, `scripts/test_check_constitution_adoption.py`, `docs/CONSTITUTION-MIGRATION.md` | Hash-locked historical-report disposition, fail-closed test, rollback, and evidence boundaries |
 | `Cargo.toml`, `Cargo.lock` | Workspace for `rustmc-world` |
 | `crates/rustmc-world/` | Durable block set/get + tests |
 | `vendor/{pumpkin,leafish,veloren}` | Git submodules (pinned SHAs) |
@@ -36,8 +40,10 @@
 ```powershell
 cd RustMC
 git remote -v   # origin -> https://github.com/MrWizard94-Compile/RustMC.git
-pwsh -File "AGENTS Constitution/tools/verify-pack.ps1"   # exit 0
-cargo test -p rustmc-world                               # 3 tests pass
+# GitHub Actions: Verify RustMC and Constitution adoption (pinned source gate)
+cargo +1.97.1 fmt --all -- --check
+cargo +1.97.1 clippy --workspace --all-targets --locked -- -D warnings
+cargo +1.97.1 test --workspace --locked
 git submodule status                                     # three pins + LICENSE files under vendor/
 ```
 
