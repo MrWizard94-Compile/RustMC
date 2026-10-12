@@ -37,7 +37,7 @@ This is **reuse of files you already have**, not redistribution. Do not zip thos
 ## What we do redistribute
 
 * Original RustMC source (MIT OR Apache-2.0 unless a file says otherwise)  
-* Vendored AGENTS Constitution pack  
+* Canonical WPAI Constitution is referenced, not vendored into this project
 * Git submodules / pins of open-source upstreams **with their upstream LICENSE files**  
 * Docs and scripts that **reference** local asset paths without embedding the assets  
 

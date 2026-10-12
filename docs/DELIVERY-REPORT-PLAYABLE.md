@@ -1,5 +1,9 @@
 # Delivery Report — Playable Pumpkin + Leafish + Veloren fork
 
+> Historical 2026-08-18 delivery evidence. Its pack command is no longer a
+> current check; use root `AGENTS.md` and CI instead. The original is
+> recoverable from Git commit `3bc607b07ba271004d1da9e1a01f30cb4f29b22f`.
+
 **Date:** 2026-08-18  
 **One-sentence summary:** Pumpkin server builds (rust-lld), runs on `:25565`, and status-pings; Leafish builds and launches with local Minecraft assets; Veloren-fork crate provides durable block place/break tests.
 

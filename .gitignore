@@ -2,6 +2,10 @@
 /target/
 **/target/
 
+# Python-based adoption checks
+__pycache__/
+*.pyc
+
 # IDE / OS
 .idea/
 .vscode/

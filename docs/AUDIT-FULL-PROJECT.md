@@ -1,5 +1,10 @@
 # Audit Report — RustMC Full Project Deep Audit
 
+> Historical 2026-08-18 evidence. The commands and pack references below
+> describe the retired 5.0.1 setup, not current verification. Use the root
+> `AGENTS.md` and CI for current law and checks. The original tree is
+> recoverable from Git commit `3bc607b07ba271004d1da9e1a01f30cb4f29b22f`.
+
 **Project / scope:** RustMC product tree (`RustMC/`) — family Minecraft-*like* Rust stack  
 **Date:** 2026-08-18  
 **Auditor:** Grok (agents-constitution skill — modes `self-run` + `gate` + product review)  

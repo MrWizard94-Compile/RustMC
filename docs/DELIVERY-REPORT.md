@@ -1,5 +1,9 @@
 # Delivery Report — RustMC bootstrap
 
+> Historical 2026-08-18 delivery evidence. Its pack commands and status do
+> not describe current verification; use root `AGENTS.md` and CI instead.
+> Original bytes remain in Git commit `3bc607b07ba271004d1da9e1a01f30cb4f29b22f`.
+
 **Title:** RustMC product bootstrap under AGENTS Constitution  
 **Date:** 2026-08-18  
 **One-sentence summary:** Clean RustMC git tree on GitHub with vendored constitution, three OSS upstream pins, and a durable tested block set/get API — no Mojang IP redistributed.

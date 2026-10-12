@@ -11,9 +11,12 @@ Family Minecraft-*like* play stack in **Rust**, built for local co-op (parents +
 1. **Pumpkin** server — build with `scripts/Build-Pumpkin.ps1 -Release`, listen on `0.0.0.0:25565`  
 2. **Leafish** client — uses your local `.minecraft` assets (not copied into git)  
 3. **Veloren fork surface** (`crates/rustmc-veloren-fork`) — durable block place/break API  
-4. **AGENTS Constitution** — quality/process law (`AGENTS.md`)
+4. **WPAI Constitution** — canonical cross-project quality/process law (`AGENTS.md`)
 
 Family session steps: [`docs/FAMILY-PLAY.md`](docs/FAMILY-PLAY.md).  
+The [Constitution migration record](docs/CONSTITUTION-MIGRATION.md) explains
+the removed vendored copy, historical audit reports, and rollback.
+
 **No Mojang/Minecraft assets or proprietary IP will be redistributed.**
 
 All The Mods 10 / Create:Aeronautics ports remain deferred (see `docs/ARCHITECTURE.md`).
@@ -21,8 +24,8 @@ All The Mods 10 / Create:Aeronautics ports remain deferred (see `docs/ARCHITECTU
 ## Quick start
 
 ```powershell
-# Constitution pack integrity
-pwsh -File "AGENTS Constitution/tools/verify-pack.ps1"
+# Canonical source and adoption checks are pinned in GitHub CI.
+# The project pointer and exact verification commands are in AGENTS.md.
 
 # Durable block API tests
 cargo test -p rustmc-world
@@ -62,8 +65,7 @@ git submodule update --init --recursive
 
 | Path | Purpose |
 |------|---------|
-| `AGENTS.md` | Level-4 pointer into the constitution pack |
-| `AGENTS Constitution/` | Vendored universal quality/process pack |
+| `AGENTS.md` | Project law and pointer to the canonical WPAI Constitution |
 | `crates/rustmc-world/` | Durable block store + tests |
 | `vendor/pumpkin/` | Upstream Pumpkin (submodule) |
 | `vendor/leafish/` | Upstream Leafish (submodule) |
